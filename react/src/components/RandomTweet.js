@@ -85,7 +85,7 @@ class RandomTweet extends React.Component {
           <div className='card-body'>
             <h5 className='card-title'>{`@${userName}`}</h5>
             <p className='card-text'>{tweet}</p>
-            <p>{this.state.location}</p>
+            <p className='location'>{this.state.location}</p>
           </div>
         </div>
 
