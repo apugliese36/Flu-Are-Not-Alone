@@ -4,9 +4,47 @@ class RandomTweet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fluTweet: {}
+      fluTweet: {},
+      location: ''
     };
     this.getFluTweet = this.getFluTweet.bind(this);
+    this.getLocation = this.getLocation.bind(this);
+  }
+
+  getLocation(fluTweet) {
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${fluTweet.latitude},${fluTweet.longitude}&key=AIzaSyDIpc3AFTpc8zxGA4s1_SLR1TsVuuJ6LzI`)
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      let city, state, country, iso_code
+      for (var ac = 0; ac < body.results[0].address_components.length; ac++) {
+          var component = body.results[0].address_components[ac];
+
+          switch(component.types[0]) {
+              case 'locality':
+                  city = component.long_name;
+                  break;
+              case 'administrative_area_level_1':
+                  state = component.short_name;
+                  break;
+              case 'country':
+                  country = component.long_name;
+                  iso_code = component.short_name;
+                  break;
+          }
+      };
+
+      this.setState({ fluTweet: fluTweet, location: `${city}, ${state}`  })
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   getFluTweet() {
@@ -24,7 +62,7 @@ class RandomTweet extends React.Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({ fluTweet: body})
+      this.getLocation(body)
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -47,6 +85,7 @@ class RandomTweet extends React.Component {
           <div className='card-body'>
             <h5 className='card-title'>{`@${userName}`}</h5>
             <p className='card-text'>{tweet}</p>
+            <p>{this.state.location}</p>
           </div>
         </div>
 
