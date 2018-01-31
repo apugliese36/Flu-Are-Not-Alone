@@ -37,6 +37,11 @@ button {
   height: 100vh;
 }
 
-.location {
+.small-font {
   font-size: 13.5px;
+  margin-bottom: 0;
+}
+
+.date {
+  margin-left: 15px;
 }

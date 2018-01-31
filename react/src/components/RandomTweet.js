@@ -74,7 +74,10 @@ class RandomTweet extends React.Component {
   render() {
     let userName = this.state.fluTweet.user_name;
     let tweet = this.state.fluTweet.tweet_text;
-
+    let dateString = this.state.fluTweet.tweet_date;
+    let dateMS = parseInt(dateString) * 1000;
+    let date = new Date(dateMS);
+    date = date.toDateString();
 
     return(
       <div className='center'>
@@ -85,7 +88,8 @@ class RandomTweet extends React.Component {
           <div className='card-body'>
             <h5 className='card-title'>{`@${userName}`}</h5>
             <p className='card-text'>{tweet}</p>
-            <p className='location'>{this.state.location}</p>
+            <span className='location small-font'>{this.state.location}</span>
+            <span className='date small-font'>{date}</span>
           </div>
         </div>
 
