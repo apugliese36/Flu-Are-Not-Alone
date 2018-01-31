@@ -37,6 +37,7 @@ button {
   height: 100vh;
 }
 
-.location {
+.small-font {
   font-size: 13.5px;
+  margin-bottom: 2px;
 }
