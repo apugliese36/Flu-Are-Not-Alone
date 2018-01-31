@@ -39,5 +39,9 @@ button {
 
 .small-font {
   font-size: 13.5px;
-  margin-bottom: 2px;
+  margin-bottom: 0;
+}
+
+.date {
+  margin-left: 15px;
 }
