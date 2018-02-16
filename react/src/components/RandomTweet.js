@@ -81,22 +81,27 @@ class RandomTweet extends React.Component {
 
     return(
       <div className='center'>
+
         <div className='card bg-light mb-3' style={{maxWidth: 18 + 'em'}}>
+
           <div className='card-header text-center'>Flu Tweet
             <i className="fa fa-frown-o fa-fw" aria-hidden="true"></i>
           </div>
+
           <div className='card-body'>
             <h5 className='card-title'>{`@${userName}`}</h5>
             <p className='card-text'>{tweet}</p>
             <span className='location small-font'>{this.state.location}</span>
             <span className='date small-font'>{date}</span>
           </div>
+          
         </div>
 
         <button onClick={this.getFluTweet} type='button' className='btn btn-outline-secondary'>
           Get New Flu Tweet
           <i className="fa fa-twitter fa-fw" aria-hidden="true"></i>
         </button>
+
       </div>
     );
   }
