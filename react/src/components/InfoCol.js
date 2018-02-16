@@ -3,6 +3,7 @@ import React from 'react';
 const InfoCol = props => {
   return(
     <div>
+
       <h2>Flu Are Not Alone</h2>
       <p>Have you ever said "Of course I'm getting sick. This always happens to me."
         or "I'm the only person thats sick! It's always me!" Well you aren't the
@@ -15,6 +16,7 @@ const InfoCol = props => {
       <p>Flu Are Not Alone finds flu and cold related tweets in the past 7 days all over the
         country by using data gathered by FluTrack.org.
       </p>
+      
     </div>
   );
 };
