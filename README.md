@@ -2,16 +2,10 @@
 
 * Ruby version 2.3.3
 
-* System dependencies
+* Configuration 
 
-* Configuration
+$ NPM INSTALL 
+$ BUNDLE
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Deployment instructions 
+In progress.
