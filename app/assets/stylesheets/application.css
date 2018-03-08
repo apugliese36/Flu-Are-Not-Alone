@@ -40,8 +40,10 @@ button {
 .small-font {
   font-size: 13.5px;
   margin-bottom: 0;
+  color: #707070;
 }
 
 .date {
   margin-left: 15px;
+  color: #707070;
 }
